@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://glass.png" type="Texture" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends RigidBody2D
+
+var droplet_object = load(\"res://droplet.tscn\")
+var ang_vel = 0;
+
+func _ready():
+	for i in range(144):
+		var new_droplet = droplet_object.instance()
+		if i <= 96:
+			new_droplet.get_node(\"Sprite\").modulate = Color.yellow;
+		new_droplet.position = position
+		new_droplet.translate(Vector2(0,-100))
+		$\"particles\".add_child(new_droplet)
+	
+func _process(delta):
+	ang_vel -= delta*Input.get_action_strength(\"beer_left\");
+	ang_vel += delta*Input.get_action_strength(\"beer_right\");
+	
+	ang_vel = min(ang_vel, 1.5)
+	ang_vel = max(-1.5, ang_vel)
+	#$\"ang_vel\".text = str(ang_vel)
+	rotation += delta * ang_vel"
+
+[node name="glass" type="RigidBody2D"]
+position = Vector2( -1, 0 )
+mode = 1
+script = SubResource( 1 )
+
+[node name="glass_collider" type="CollisionPolygon2D" parent="."]
+position = Vector2( -176.993, -120.916 )
+scale = Vector2( 2, 2 )
+polygon = PoolVector2Array( 56.0058, 4.11198, 43.3702, 99.7744, 134.595, 101.403, 122.388, 5.741, 115.318, 2.47024, 107.125, 78.7305, 68.6797, 78.1002, 63.6377, 3.10049 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="particles" type="Node" parent="."]
+
+[node name="glass_sprite" type="Sprite" parent="."]
+position = Vector2( 0.185516, -38.918 )
+scale = Vector2( 0.6, 0.66 )
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
