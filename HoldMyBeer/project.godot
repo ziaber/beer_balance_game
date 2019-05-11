@@ -16,7 +16,17 @@ _global_script_class_icons={
 [application]
 
 config/name="HoldMyBeer"
+run/main_scene="res://main_scene.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=288
+window/size/height=320
+
+[editor_plugins]
+
+enabled=PoolStringArray( "codeandweb.texturepacker" )
 
 [rendering]
 

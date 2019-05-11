@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://background/parallax_background.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2( 3.1111, 16 )
+scale = Vector2( 0.998596, 1 )
+
+[node name="Node2D" parent="." instance=ExtResource( 1 )]
+position = Vector2( -68.9858, -34.2222 )
