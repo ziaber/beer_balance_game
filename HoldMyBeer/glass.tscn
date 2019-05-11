@@ -9,9 +9,10 @@ var droplet_object = load(\"res://droplet.tscn\")
 var ang_vel = 0;
 
 func _ready():
-	for i in range(144):
+	beer_globals.current = beer_globals.total
+	for i in range(beer_globals.total):
 		var new_droplet = droplet_object.instance()
-		if i <= 96:
+		if i <= beer_globals.total/4*3:
 			new_droplet.get_node(\"Sprite\").modulate = Color.yellow;
 		new_droplet.position = position
 		new_droplet.translate(Vector2(0,-100))
