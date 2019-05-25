@@ -26,7 +26,7 @@ window/size/height=320
 
 [editor_plugins]
 
-enabled=PoolStringArray( "codeandweb.texturepacker" )
+enabled=PoolStringArray(  )
 
 [rendering]
 
