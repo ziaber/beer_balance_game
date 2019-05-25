@@ -25,6 +25,7 @@ tracks/0/keys = {
 [node name="Node2D" type="KinematicBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+editor/display_folded = true
 position = Vector2( 60, 90 )
 shape = SubResource( 1 )
 
