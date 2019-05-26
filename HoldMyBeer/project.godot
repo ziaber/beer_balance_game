@@ -8,9 +8,26 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Area2D",
+"class": "Obstacle",
+"language": "GDScript",
+"path": "res://Obstacle/Obstacle.gd"
+}, {
+"base": "Node",
+"class": "Obstacles_factory",
+"language": "GDScript",
+"path": "res://Obstacle/Obstacles_factory.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Character.gd"
+} ]
 _global_script_class_icons={
-
+"Obstacle": "",
+"Obstacles_factory": "",
+"Player": ""
 }
 
 [application]
@@ -18,6 +35,10 @@ _global_script_class_icons={
 config/name="HoldMyBeer"
 run/main_scene="res://main_scene.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globals="*res://globals.gd"
 
 [display]
 

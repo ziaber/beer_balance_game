@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Obstacle/Obstacle.gd" type="Script" id=1]
+[ext_resource path="res://Obstacle/Obstacle.tscn" type="PackedScene" id=2]
+
+[node name="Node" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="Obstacle" parent="." instance=ExtResource( 2 )]
+position = Vector2( -18.8677, 19.2451 )
+
+[node name="Obstacle2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 185.789, 21.8482 )
+
+[node name="Sprite" parent="Obstacle2" index="0"]
+modulate = Color( 0.313726, 0, 1, 1 )
+
+[node name="Obstacle3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 79.3753, 21.8482 )
+
+[node name="Sprite" parent="Obstacle3" index="0"]
+modulate = Color( 1, 0, 0, 1 )
+
+[editable path="Obstacle"]
+
+[editable path="Obstacle2"]
+
+[editable path="Obstacle3"]
