@@ -13,6 +13,7 @@ func _process(delta):
 	
 	if int(distance) == next_obstacle_distance:
 		var new_obstacle = obstacle_object.get_obstacle() as Obstacle
+		new_obstacle.scale = Vector2(2,2)
 		new_obstacle.position = Vector2(rand_range(0, ProjectSettings.get_setting("display/window/size/width")), -40)
 		add_child(new_obstacle)
 		print("spawned")
