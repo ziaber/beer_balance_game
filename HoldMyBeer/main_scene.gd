@@ -3,8 +3,11 @@ extends Node2D
 var distance = 0.0
 var obstacle_object = load("res://Obstacle/Obstacles_factory.tscn").instance()
 var next_obstacle_distance = 10
+var nav_x_position_choices = []
 func _ready():
-	pass # Replace with function body.
+	var width = ProjectSettings.get_setting("display/window/size/width")
+	for i in [1, 3, 5]:
+		nav_x_position_choices.append(i * width/6)
 
 func _process(delta):
 	globals.speed = lerp(globals.speed, globals.max_speed, 0.01)
@@ -14,7 +17,6 @@ func _process(delta):
 	if int(distance) == next_obstacle_distance:
 		var new_obstacle = obstacle_object.get_obstacle() as Obstacle
 		new_obstacle.scale = Vector2(2,2)
-		new_obstacle.position = Vector2(rand_range(0, ProjectSettings.get_setting("display/window/size/width")), -40)
+		new_obstacle.position = Vector2(nav_x_position_choices[randi() % 3], -100)
 		add_child(new_obstacle)
-		print("spawned")
-		next_obstacle_distance += 5
+		next_obstacle_distance += 15

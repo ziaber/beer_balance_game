@@ -32,6 +32,7 @@ position = Vector2( 68.3711, 330.128 )
 shape = SubResource( 1 )
 
 [node name="right_wall" type="StaticBody2D" parent="background"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="background/right_wall"]
 position = Vector2( 350.041, 259.687 )
