@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Obstacle/Obstacles_factory.gd" type="Script" id=1]
+[ext_resource path="res://Obstacle/Obstacle.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9.47437, 9.69261 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="bed1" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 198.161, 75.4884 )
+
+[node name="bed2" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 144.069, 71.9732 )
+
+[node name="bed2_mirr" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 159.368, 115.563 )
+
+[node name="wheelchair" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 141.076, 154.725 )
+
+[node name="Sprite" parent="wheelchair" index="0"]
+region_rect = Rect2( 257, 161, 32, 64 )
+
+[node name="CollisionShape2D" parent="wheelchair" index="1"]
+position = Vector2( -1, 5 )
+shape = SubResource( 1 )
+
+[node name="wheelchair_mirr" parent="." instance=ExtResource( 2 )]
+editor/display_folded = true
+position = Vector2( 170.052, 154.939 )
+
+[node name="Sprite" parent="wheelchair_mirr" index="0"]
+region_rect = Rect2( 289, 161, 32, 64 )
+
+[node name="CollisionShape2D" parent="wheelchair_mirr" index="1"]
+position = Vector2( -1, 5 )
+shape = SubResource( 1 )
+
+[editable path="wheelchair"]
+
+[editable path="wheelchair_mirr"]
