@@ -42,9 +42,7 @@ globals="*res://globals.gd"
 
 [display]
 
-window/size/width=288
-window/size/height=320
-window/stretch/mode="2d"
+window/size/width=800
 
 [editor_plugins]
 
@@ -52,4 +50,5 @@ enabled=PoolStringArray(  )
 
 [rendering]
 
+environment/default_clear_color=Color( 0.258824, 0.45098, 0.478431, 1 )
 environment/default_environment="res://default_env.tres"
