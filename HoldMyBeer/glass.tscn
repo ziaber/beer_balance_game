@@ -8,26 +8,25 @@ script/source = "extends RigidBody2D
 var droplet_object = load(\"res://droplet.tscn\")
 
 func _ready():
-	beer_globals.glass_rotation = 0.0
-	beer_globals.current = beer_globals.total
-	beer_globals.lost = 0
-	beer_globals.score = 0.0
-	for i in range(beer_globals.total):
+	globals.glass_rotation = 0.0
+	globals.current = globals.total
+	globals.lost = 0
+	for i in range(globals.total):
 		var new_droplet = droplet_object.instance()
-		if i <= beer_globals.total/4*3:
+		if i <= globals.total/4*3:
 			new_droplet.get_node(\"Sprite\").modulate = Color.yellow;
 		new_droplet.position = position
 		new_droplet.translate(Vector2(0,-100))
 		$\"particles\".add_child(new_droplet)
 	
 func _process(delta):
-	beer_globals.glass_rotation -= delta*Input.get_action_strength(\"beer_left\");
-	beer_globals.glass_rotation += delta*Input.get_action_strength(\"beer_right\");
+	globals.glass_rotation -= delta*Input.get_action_strength(\"beer_left\");
+	globals.glass_rotation += delta*Input.get_action_strength(\"beer_right\");
 	
-	beer_globals.glass_rotation = min(beer_globals.glass_rotation, 1.5)
-	beer_globals.glass_rotation = max(-1.5, beer_globals.glass_rotation)
+	globals.glass_rotation = min(globals.glass_rotation, 1.5)
+	globals.glass_rotation = max(-1.5, globals.glass_rotation)
 	#$\"ang_vel\".text = str(ang_vel)
-	rotation += delta * beer_globals.glass_rotation"
+	rotation += delta * globals.glass_rotation"
 
 [node name="glass" type="RigidBody2D"]
 position = Vector2( -1, 0 )
