@@ -14,7 +14,11 @@ func _process(delta):
 	globals.speed = lerp(globals.speed, globals.max_speed, 0.01)
 	
 	distance += globals.speed * delta * 0.03
+<<<<<<< HEAD
 	globals.score += globals.current * 0.1 * globals.speed * delta * 0.03
+=======
+	globals.score += globals.speed * delta * 0.03
+>>>>>>> 14b0accdbd96cebd46e0337ec306aa25600a45b7
 	
 	$GUI/Distance.text = "Distance: " + str(floor(distance)) + "\nScore: " + str(floor(globals.score))
 	
@@ -24,3 +28,9 @@ func _process(delta):
 		new_obstacle.position = Vector2(nav_x_position_choices[randi() % 3], -100)
 		add_child(new_obstacle)
 		next_obstacle_distance += 15
+	
+	if int(distance) == 100:
+		_go_to_end_screen()
+		
+func _go_to_end_screen():
+		get_tree().change_scene("res://EndScreen.tscn")
