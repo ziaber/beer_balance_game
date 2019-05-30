@@ -6,9 +6,9 @@
 script/source = "extends RigidBody2D
 
 var droplet_object = load(\"res://droplet.tscn\")
-var ang_vel = 0;
 
 func _ready():
+	beer_globals.glass_rotation = 0.0
 	beer_globals.current = beer_globals.total
 	beer_globals.lost = 0
 	beer_globals.score = 0.0
@@ -21,13 +21,13 @@ func _ready():
 		$\"particles\".add_child(new_droplet)
 	
 func _process(delta):
-	ang_vel -= delta*Input.get_action_strength(\"beer_left\");
-	ang_vel += delta*Input.get_action_strength(\"beer_right\");
+	beer_globals.glass_rotation -= delta*Input.get_action_strength(\"beer_left\");
+	beer_globals.glass_rotation += delta*Input.get_action_strength(\"beer_right\");
 	
-	ang_vel = min(ang_vel, 1.5)
-	ang_vel = max(-1.5, ang_vel)
+	beer_globals.glass_rotation = min(beer_globals.glass_rotation, 1.5)
+	beer_globals.glass_rotation = max(-1.5, beer_globals.glass_rotation)
 	#$\"ang_vel\".text = str(ang_vel)
-	rotation += delta * ang_vel"
+	rotation += delta * beer_globals.glass_rotation"
 
 [node name="glass" type="RigidBody2D"]
 position = Vector2( -1, 0 )

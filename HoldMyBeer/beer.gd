@@ -9,22 +9,19 @@ func _ready():
 	$"GUI/Label".text = str(beer_globals.score)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	beer_globals.score += delta*beer_globals.current
+	$"GUI/Label".text = str(beer_globals.score)
 
 func _on_Area2D_body_entered(body):
 	beer_globals.lost += 1
-	beer_globals.current -= 1;
+	beer_globals.current -= 1
 	#$"GUI/Label".text = str(lost)
 	body.queue_free()
 	#if lost == beer_globals.total:
 	if beer_globals.current <= 0:
-		#trigger gameover
+		#TODO: trigger gameover
 		#get_tree().change_scene_to()
 		#get_parent().wyswietl_game_over()
 		get_tree().reload_current_scene()
 		pass
-
-func _process(delta):
-	beer_globals.score += delta*beer_globals.current
-	$"GUI/Label".text = str(beer_globals.score)
