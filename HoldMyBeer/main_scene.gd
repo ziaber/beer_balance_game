@@ -5,7 +5,7 @@ var obstacle_object = load("res://Obstacle/Obstacles_factory.tscn").instance()
 var next_obstacle_distance = 10
 var nav_x_position_choices = []
 func _ready():
-	var width = ProjectSettings.get_setting("display/window/size/width")
+	var width = 288
 	for i in [1, 3, 5]:
 		nav_x_position_choices.append(i * width/6)
 
