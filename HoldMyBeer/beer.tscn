@@ -4,7 +4,7 @@
 [ext_resource path="res://glass.tscn" type="PackedScene" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 500, 500 )
+extents = Vector2( 804.188, 278.909 )
 
 [node name="beer" type="Node"]
 script = ExtResource( 1 )
@@ -13,6 +13,7 @@ script = ExtResource( 1 )
 position = Vector2( 511.783, 879.847 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2( -3.87708, 54.2788 )
 shape = SubResource( 1 )
 __meta__ = {
 "_edit_lock_": true

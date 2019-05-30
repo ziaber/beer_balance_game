@@ -6,22 +6,19 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"GUI/Label".text = str(beer_globals.score)
-
+	pass
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	beer_globals.score += delta*beer_globals.current
-	$"GUI/Label".text = str(beer_globals.score)
+	pass
 
 func _on_Area2D_body_entered(body):
-	beer_globals.lost += 1
-	beer_globals.current -= 1
+	globals.lost += 1
+	globals.current -= 1
 	#$"GUI/Label".text = str(lost)
 	body.queue_free()
 	#if lost == beer_globals.total:
-	if beer_globals.current <= 0:
-		#TODO: trigger gameover
-		#get_tree().change_scene_to()
-		#get_parent().wyswietl_game_over()
-		get_tree().reload_current_scene()
-		pass
+	if globals.current <= 0:
+		_go_to_end_screen()
+				
+func _go_to_end_screen():
+		get_tree().change_scene("res://EndScreen.tscn")
