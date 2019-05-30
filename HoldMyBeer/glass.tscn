@@ -10,6 +10,8 @@ var ang_vel = 0;
 
 func _ready():
 	beer_globals.current = beer_globals.total
+	beer_globals.lost = 0
+	beer_globals.score = 0.0
 	for i in range(beer_globals.total):
 		var new_droplet = droplet_object.instance()
 		if i <= beer_globals.total/4*3:
