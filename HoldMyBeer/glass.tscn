@@ -20,8 +20,8 @@ func _ready():
 		$\"particles\".add_child(new_droplet)
 	
 func _process(delta):
-	globals.glass_rotation -= delta*Input.get_action_strength(\"beer_left\");
-	globals.glass_rotation += delta*Input.get_action_strength(\"beer_right\");
+	globals.glass_rotation -= 5*delta*Input.get_action_strength(\"beer_left\");
+	globals.glass_rotation += 5*delta*Input.get_action_strength(\"beer_right\");
 	
 	globals.glass_rotation = min(globals.glass_rotation, 1.5)
 	globals.glass_rotation = max(-1.5, globals.glass_rotation)

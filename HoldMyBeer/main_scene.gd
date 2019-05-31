@@ -11,6 +11,7 @@ func _ready():
 		nav_x_position_choices.append(i * width/6)
 
 func _process(delta):
+	globals.max_speed = 200 + distance/1.3
 	globals.speed = lerp(globals.speed, globals.max_speed, 0.01)
 	
 	distance += globals.speed * delta * 0.03
