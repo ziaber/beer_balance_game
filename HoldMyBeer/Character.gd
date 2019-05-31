@@ -17,3 +17,10 @@ func get_input():
 func _physics_process(delta):
     get_input()
     move_and_slide(velocity* 200)
+
+func _process(delta): 
+	globals.glass_rotation -= velocity.x/10;
+#ROTATING BEER ON WALL COLLISIONS
+#	for i in get_slide_count():
+#    var collision = get_slide_collision(i)
+#    globals.glass_rotation += collision.normal.x/100
