@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://glass.png" type="Texture" id=1]
+[ext_resource path="res://metaball.shader" type="Shader" id=1]
+[ext_resource path="res://glass.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
 script/source = "extends RigidBody2D
@@ -28,6 +29,12 @@ func _process(delta):
 	#$\"ang_vel\".text = str(ang_vel)
 	rotation += delta * globals.glass_rotation"
 
+[sub_resource type="ShaderMaterial" id=4]
+shader = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
+
 [node name="glass" type="RigidBody2D"]
 position = Vector2( -1, 0 )
 mode = 1
@@ -43,10 +50,24 @@ __meta__ = {
 
 [node name="particles" type="Node" parent="."]
 
+[node name="viewport_sprite" type="Sprite" parent="."]
+material = SubResource( 4 )
+position = Vector2( -1.08636, 69.3294 )
+scale = Vector2( 0.402251, 0.786099 )
+texture = SubResource( 3 )
+
 [node name="glass_sprite" type="Sprite" parent="."]
 position = Vector2( 0.185516, -38.918 )
 scale = Vector2( 0.6, 0.66 )
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 600, 600 )
+own_world = true
+hdr = false
+disable_3d = true
+usage = 1
+render_target_v_flip = true
